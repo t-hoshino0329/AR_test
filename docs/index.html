@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>AR.js Sample — Hiro Marker</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+  <style>
+    body{margin:0;overflow:hidden}
+    #instructions{position:fixed;top:8px;left:8px;padding:8px;background:rgba(255,255,255,0.9);z-index:999;font-size:14px;border-radius:6px}
+    a{color:#0066cc}
+  </style>
+</head>
+<body>
+  <div id="instructions">
+    スマホでこのページを開き、カメラ許可を許可してください。<br>
+    Hiroマーカーをカメラに写すと3Dオブジェクトが表示されます。<br>
+    Hiroマーカー（表示/印刷用）：
+    <a href="https://raw.githubusercontent.com/AR-js-org/AR.js/master/three.js/examples/marker-training/examples/HIRO.jpg" target="_blank">HIRO.jpg</a>
+  </div>
+
+  <a-scene embedded arjs="sourceType: webcam; detectionMode: mono_and_matrix; debugUIEnabled: false;">
+    <a-marker preset="hiro">
+      <!-- ここを編集して好きな3Dモデルや形状を置けます -->
+      <a-box position="0 0.5 0" material="color: #4CC3D9;"></a-box>
+      <a-entity position="0 0.95 0" text="value:Hello AR.js; align:center; width:2; color:#000;"></a-entity>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+
+</body>
+</html>
